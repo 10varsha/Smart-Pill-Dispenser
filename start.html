@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start - Smart Pill Dispenser</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Smart Pill Dispenser</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section id="start">
+      <div class="container">
+        <h2>Face Recognition</h2>
+        <p>Ensure the correct individual is identified before proceeding.</p>
+        <div class="face-recognition">
+          <div class="camera-box">
+            <!-- Placeholder for camera feed -->
+            <video id="video" width="400" height="300" autoplay></video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="voice-commands">
+      <div class="container">
+        <h2>Voice Commands</h2>
+        <p>Control your dispenser with simple voice commands.</p>
+        <div class="voice-commands">
+          <button class="btn">
+            <img src="mic-icon.png" alt="Mic Icon" class="mic-icon" /> Activate
+            Voice Commands
+          </button>
+          <div class="speech-to-text-box">
+            <p id="speech-text">Your spoken commands will appear here...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dispense">
+      <div class="container">
+        <h2>Dispense Pill</h2>
+        <p>Dispense your medication.</p>
+        <div class="dispense-button">
+          <button class="btn">Dispense Pill</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Smart Pill Dispenser. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Placeholder for activating camera
+      const video = document.getElementById("video");
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+            video.play();
+          });
+      }
+    </script>
+  </body>
+</html>
