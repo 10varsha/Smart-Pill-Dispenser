@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start - Smart Pill Dispenser</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/1e99f01051.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Smart Pill Dispenser</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="start">
+        <div class="card">
+          <h2>Face Recognition</h2>
+          <p>Ensure the correct individual is identified before proceeding.</p>
+          <div class="face-recognition">
+            <div class="camera-box">
+              <!-- Placeholder for camera feed -->
+              <video id="video" autoplay></video>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Voice Commands</h2>
+          <p>Control your dispenser with simple voice commands.</p>
+          <div class="voice-commands">
+            <button class="btn microphone-btn">
+              <i class="fa-solid fa-microphone"></i>
+            </button>
+            <div class="speech-to-text-box">
+              <p id="speech-text">Your spoken commands will appear here...</p>
+            </div>
+            <div class="dispense-button">
+              <button class="btn dispense-btn">Dispense Pill</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="medication-details">
+        <h1 class="user-name">Varsha Sahu</h1>
+        <h5 class="medicine-name">Medicine 1 Dispensed!</h5>
+        <span class="meds-left">2 </span> medicines left today. <br />Next Pill:
+        <div>
+          <span id="med-time1">2:00 PM</span
+          ><span id="med-time2"> 8:00 PM</span>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Smart Pill Dispenser. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Placeholder for activating camera
+      const video = document.getElementById("video");
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+            video.play();
+          });
+      }
+    </script>
+  </body>
+</html>
