@@ -32,33 +32,45 @@
               <!-- Placeholder for camera feed -->
               <video id="video" autoplay></video>
             </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>Voice Commands</h2>
-          <p>Control your dispenser with simple voice commands.</p>
-          <div class="voice-commands">
-            <button class="btn microphone-btn">
-              <i class="fa-solid fa-microphone"></i>
-            </button>
-            <div class="speech-to-text-box">
-              <p id="speech-text">Your spoken commands will appear here...</p>
-            </div>
             <div class="dispense-button">
-              <button class="btn dispense-btn">Dispense Pill</button>
+              <button
+                class="btn dispense-btn"
+                id="dispenseBtn"
+                onclick="dispensePill()"
+              >
+                Dispense Pill
+              </button>
             </div>
+            <p class="user-not-found" id="userNotFound" style="display: none">
+              User not found. <a href="registration.html">Register Here.</a>
+            </p>
           </div>
         </div>
-      </section>
 
-      <section id="medication-details">
-        <h1 class="user-name">Varsha Sahu</h1>
-        <h5 class="medicine-name">Medicine 1 Dispensed!</h5>
-        <span class="meds-left">2 </span> medicines left today. <br />Next Pill:
-        <div>
-          <span id="med-time1">2:00 PM</span
-          ><span id="med-time2"> 8:00 PM</span>
+        <div class="right-column">
+          <div class="card" id="medication-details">
+            <h1 class="user-name">Varsha Sahu</h1>
+            <h5 class="medicine-name">Medicine 1 Dispensed!</h5>
+            <span class="meds-left">2 </span> medicines left today. <br />Next
+            Pill:
+            <div>
+              <span id="med-time1">2:00 PM</span
+              ><span id="med-time2"> 8:00 PM</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Voice Commands</h2>
+            <p>Control your dispenser with simple voice commands.</p>
+            <div class="voice-commands">
+              <button class="btn microphone-btn">
+                <i class="fa-solid fa-microphone"></i>
+              </button>
+              <div class="speech-to-text-box">
+                <p id="speech-text">Your spoken commands will appear here...</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -72,13 +84,34 @@
     <script>
       // Placeholder for activating camera
       const video = document.getElementById("video");
+      const userNotFound = document.getElementById("userNotFound");
+      const dispenseBtn = document.getElementById("dispenseBtn");
+      let stream;
+
       if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices
           .getUserMedia({ video: true })
-          .then(function (stream) {
+          .then(function (videoStream) {
+            stream = videoStream;
             video.srcObject = stream;
             video.play();
           });
+      }
+
+      function stopVideoStream() {
+        if (stream) {
+          const tracks = stream.getTracks();
+          tracks.forEach(function (track) {
+            track.stop();
+          });
+        }
+      }
+
+      function dispensePill() {
+        // Simulate user not found scenario
+        userNotFound.style.display = "block";
+        dispenseBtn.style.display = "none";
+        stopVideoStream();
       }
     </script>
   </body>

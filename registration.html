@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="registration.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>User Registration</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="registration">
+        <div class="container registration-wrapper">
+          <div class="camera-box">
+            <!-- Placeholder for camera feed -->
+            <video id="video" autoplay></video>
+          </div>
+          <div class="form-container">
+            <form>
+              <div class="form-group">
+                <label for="userName">Name</label>
+                <input
+                  type="text"
+                  id="userName"
+                  name="userName"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="userEmail">Email</label>
+                <input
+                  type="email"
+                  id="userEmail"
+                  name="userEmail"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="userAge">Age</label>
+                <input
+                  type="number"
+                  id="userAge"
+                  name="userAge"
+                  placeholder="Enter your age"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="medicalIssue">Medical Issue</label>
+                <textarea
+                  id="medicalIssue"
+                  name="medicalIssue"
+                  rows="3"
+                  placeholder="Enter your medical issue"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <div class="medicine-time">
+                  <div>
+                    <label for="medicine1Name" class="med-name"
+                      >Medicine 1</label
+                    >
+                    <input
+                      type="text"
+                      id="medicine1Name"
+                      name="medicine1Name"
+                      placeholder="Enter medicine name"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label for="medicine1Time" class="time-box">Time 1</label>
+                    <input
+                      type="time"
+                      id="medicine1Time"
+                      name="medicine1Time"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="medicine-time">
+                  <div>
+                    <label for="medicine2Name" class="med-name"
+                      >Medicine 2</label
+                    >
+                    <input
+                      type="text"
+                      id="medicine2Name"
+                      name="medicine2Name"
+                      placeholder="Enter medicine name"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label for="medicine2Time" class="time-box">Time 2</label>
+                    <input
+                      type="time"
+                      id="medicine2Time"
+                      name="medicine2Time"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div id="medicineFields"></div>
+              <button type="button" id="addMedicineBtn">+</button>
+              <button type="submit">Register</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Smart Pill Dispenser. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Placeholder for activating camera
+      const video = document.getElementById("video");
+      const userNotFound = document.getElementById("userNotFound");
+      const dispenseBtn = document.getElementById("dispenseBtn");
+      let stream;
+
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (videoStream) {
+            stream = videoStream;
+            video.srcObject = stream;
+            video.play();
+          });
+      }
+
+      function stopVideoStream() {
+        if (stream) {
+          const tracks = stream.getTracks();
+          tracks.forEach(function (track) {
+            track.stop();
+          });
+        }
+      }
+
+      function dispensePill() {
+        // Simulate user not found scenario
+        userNotFound.style.display = "block";
+        dispenseBtn.style.display = "none";
+        stopVideoStream();
+      }
+    </script>
+  </body>
+</html>

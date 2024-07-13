@@ -1,0 +1,145 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+header {
+    background-image: linear-gradient(to right, #2eabb1, #378b9f, #2d5b71, #1f2f40, #030512);
+    color: white;
+    padding: 0.5rem 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+header h1 {
+    margin: 0.5rem 1rem;  /* Adjusted margins */
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 0.5rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+section {
+    padding: 2rem 0;
+}
+
+.registration-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.camera-box {
+    width: 40%;
+    height: 360px;
+    margin: 3rem 0;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+#video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.form-container {
+    width: 50%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.medicine-time {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.med-name {
+    width: 300px;
+}
+
+.time-box {
+    width: 200px;
+}
+
+form button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: #c00021;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#addMedicineBtn {
+    background: #007bff;
+}
+
+@media (max-width: 768px) {
+    .registration-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .camera-box,
+    .form-container {
+        width: 100%;
+    }
+}
+
